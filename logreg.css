@@ -1,0 +1,195 @@
+
+.main .log_reg {
+  padding: 30px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .log_reg .login, .main .log_reg .signup {
+  margin: 0 30px;
+  background: linear-gradient(145deg, transparent, transparent);
+  padding: 50px 2.3%;
+  width: 493px;
+  max-width: 100%;
+  border-radius: 50px;
+  text-align: center;
+  -webkit-box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main .log_reg .login .title, .main .log_reg .signup .title {
+  color: #353b48;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.main .log_reg .login form, .main .log_reg .signup form {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .log_reg .login form .inputWrapper, .main .log_reg .signup form .inputWrapper {
+  width: 90%;
+  margin-top: 18px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing, .main .log_reg .signup form .inputWrapper .inputing {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=text], .main .log_reg .login form .inputWrapper .inputing input[type=password], .main .log_reg .signup form .inputWrapper .inputing input[type=text], .main .log_reg .signup form .inputWrapper .inputing input[type=password] {
+  width: 80%;
+  font-size: .9rem;
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=text]:focus, .main .log_reg .login form .inputWrapper .inputing input[type=password]:focus, .main .log_reg .signup form .inputWrapper .inputing input[type=text]:focus, .main .log_reg .signup form .inputWrapper .inputing input[type=password]:focus {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=password], .main .log_reg .signup form .inputWrapper .inputing input[type=password] {
+  letter-spacing: 2px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=password]::-webkit-input-placeholder, .main .log_reg .signup form .inputWrapper .inputing input[type=password]::-webkit-input-placeholder {
+  letter-spacing: 0px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=password]:-ms-input-placeholder, .main .log_reg .signup form .inputWrapper .inputing input[type=password]:-ms-input-placeholder {
+  letter-spacing: 0px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=password]::-ms-input-placeholder, .main .log_reg .signup form .inputWrapper .inputing input[type=password]::-ms-input-placeholder {
+  letter-spacing: 0px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing input[type=password]::placeholder, .main .log_reg .signup form .inputWrapper .inputing input[type=password]::placeholder {
+  letter-spacing: 0px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing .fa-info, .main .log_reg .signup form .inputWrapper .inputing .fa-info {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  width: 21px;
+  height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .7rem;
+  position: relative;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing .fa-info:hover > .mytooltip, .main .log_reg .login form .inputWrapper .inputing .fa-info:focus > .mytooltip, .main .log_reg .signup form .inputWrapper .inputing .fa-info:hover > .mytooltip, .main .log_reg .signup form .inputWrapper .inputing .fa-info:focus > .mytooltip {
+  opacity: 1;
+}
+
+.main .log_reg .login form .inputWrapper .inputing .fa-info .mytooltip, .main .log_reg .signup form .inputWrapper .inputing .fa-info .mytooltip {
+  overflow: hidden;
+  position: absolute;
+  bottom: 100%;
+  right: 50%;
+  color: #eee;
+  background: #222;
+  padding: 10px;
+  width: 30vw;
+  max-width: 300px;
+  border-radius: 10px;
+  font-size: .8rem;
+  font-weight: 400;
+  pointer-events: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  line-height: 20px;
+  opacity: 0;
+  -webkit-box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+  text-align: justify;
+}
+
+.main .log_reg .login form .inputWrapper .err, .main .log_reg .signup form .inputWrapper .err {
+  color: #ff3f34;
+  font-weight: 400;
+  font-size: .8rem;
+  margin-top: 0px;
+  text-align: left;
+  padding-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 1s linear;
+  transition: max-height 1s linear;
+}
+
+.main .log_reg .login form button[type="submit"], .main .log_reg .signup form button[type="submit"] {
+  margin-top: 50px;
+}
+
+.main .log_reg .login form .inputWrapper .inputing.align_items_center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .log_reg .login form .inputWrapper .inputing #rememberme {
+  width: 16px;
+  height: 16px;
+  color: red;
+}
+
+.main .log_reg .login form .inputWrapper .inputing label[for="rememberme"] {
+  padding-left: 5px;
+  font-size: .9rem;
+}
+
+@media (max-width: 880px) {
+  .log_reg {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .log_reg .login, .log_reg .signup {
+    margin: 30px 0 !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

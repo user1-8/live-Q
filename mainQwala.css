@@ -1,0 +1,95 @@
+
+
+
+.main{
+	padding: 20px;
+}
+
+.game_info{
+	border-bottom: 1px solid rgba(0,0,0,.5);
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+}
+.players ul{
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+
+.gameStartKarein button{
+	animation: myanim 2s infinite linear;
+}
+@keyframes myanim{
+	0%{ box-shadow: none; transform: scale(1); }
+	50%{ box-shadow: 0 0 40px 0 rgba(13, 110, 253, .9); transform: scale(1.02); }
+	100%{ box-shadow: none; transform: scale(1); }
+	
+}
+
+
+.result_overview{
+	margin: 30px 0;
+	padding: 1.2rem;
+	background: #fff;
+	border-radius: 30px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .06);
+}
+
+.result_overview .winner span{
+	font-weight: 600;
+    color: #009310 !important;
+    background: rgba(0, 255, 0, .1);
+    padding: 0 10px;
+    border-radius: 100px;
+}
+.result_overview .butTie span{
+	font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.result_overview table thead th{
+	background: rgba(56,56,56,1);
+	color: #fff;
+}
+.result_overview table tbody td{
+	background: #eff3f6;
+	border: 1px solid rgba(56,56,56,.4);
+}
+
+.result_overview .shortForms{
+	font-size: .8rem;
+}
+.result_overview .shortForms br{
+
+}
+
+.qSection{
+	padding: 40px 0;
+
+}
+
+.qSection .timers div b .timer_inner{
+	width: 4.1rem;
+	text-align: left;
+}
+
+.qSection .navigateQ{
+	display: flex;
+	justify-content: space-between;
+}
+
+.qSection .qcompContainer_parent{
+	width: 100%;
+/* 	overflow: hidden; */
+}
+.qSection .qcompContainer{
+	margin: 20px 0;
+	/* overflow: hidden;
+	display: flex;
+	justify-content: space-around;
+	width: 400%; */
+}
+
+.qSection .qcompContainer .question-component{
+	width: 100%;
+}

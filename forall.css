@@ -1,0 +1,21 @@
+*{font-family: 'Poppins', sans-serif; }
+
+html {
+  font-size: 20px;
+  scroll-behavior: smooth !important;
+}
+
+body{
+	min-height: 100vh;
+	background: #EAEFF2 !important;
+}
+
+input{
+	outline: none;
+}
+
+.max_width_fixed_forLargeScreen{
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
