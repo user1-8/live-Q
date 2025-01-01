@@ -64,7 +64,7 @@
 
 .main .log_reg .login form .inputWrapper .inputing input[type=text], .main .log_reg .login form .inputWrapper .inputing input[type=password], .main .log_reg .signup form .inputWrapper .inputing input[type=text], .main .log_reg .signup form .inputWrapper .inputing input[type=password] {
   width: 80%;
-  font-size: .9rem;
+  font-size: 1rem;
   padding: 5px 10px;
   background: transparent;
   border: none;
