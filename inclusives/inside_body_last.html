@@ -3,6 +3,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script>
+    function addScript(url) {
+        const element = document.createElement('script');
+        element.src = url;
+        element.defer = true;
+        document.body.appendChild(element);
+    }
+    function downloadJSAtOnload() {
+        // addScript(
+        //     'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8367669190234763'
+        // );
+        addScript('https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js');
+        addScript('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js');
+    }
+    if (window.addEventListener) window.addEventListener('load', downloadJSAtOnload, false);
+    else if (window.attachEvent) window.attachEvent('onload', downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+</script>
+
 <script src="inclusives/qbank.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/gh/user1-8/live-Q@main/inclusives/qbank.js"></script> -->
 <script src="forall.js"></script>
