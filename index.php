@@ -196,20 +196,25 @@ if(isset($_POST['openPrevG'])){
         <div class="table-responsive mt-1">
             <table class="table table-bordered text-center">
                 <thead> <tr class="bg-secondary">
-                    <th class="bg-dark text-light">Game Id</th>
-                    <th class="bg-dark text-light">Score</th>
-                    <th class="bg-dark text-light">Action</th>
+                    <th class="bg-dark align-middle text-light">Game Id</th>
+                    <th class="bg-dark align-middle text-light">Chapter</th>
+                    <th class="bg-dark align-middle text-light">Score</th>
+                    <th class="bg-dark align-middle text-light">Action</th>
                 </tr> </thead>
 
                 <tbody> 
                     <?php
                     while($q56 = mysqli_fetch_array($q55) ){
+                        $q5f5 = mysqli_query($conn, " SELECT * FROM games WHERE gameid={$q56['gameid']} ");
+                        $q5g5 = mysqli_fetch_array($q5f5);
+
                     ?>
 
                     <tr>
-                        <td><?php echo $q56['gameid'];?></td>
-                        <td><?php echo $q56['score'];?></td>
-                        <td>
+                        <td class="align-middle"><?php echo $q56['gameid'];?></td>
+                        <td class="align-middle"><?php echo $q5g5['chapter'];?></td>
+                        <td class="align-middle"><?php echo $q56['score'];?></td>
+                        <td class="align-middle">
                             <form method="POST">
                                 <input type="text" readonly class="d-none border border-dark" name="gID" value="<?php echo $q56['gameid'];?>">
                                 <button type="submit" name="openPrevG" class="btn btn-primary">Open</button>

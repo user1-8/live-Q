@@ -17,6 +17,8 @@ $(document).ready(function(){
 
 	let select_chap_original_html = $('.new_game select.chap_select').html();
 
+	let totalNumOfQ_ofChaps;
+
 	$('.new_game select.subj_select').change(function(){
 		let chap_kardena = "";
 		let chaps_of_dis_subj = chap_list[$(this).val().trim()];
@@ -34,6 +36,11 @@ $(document).ready(function(){
 		}else{
 			$('.new_game .exam_select').slideUp();
 		}
+
+
+		$('.new_game select.chap_select').attr('disabled','');
+
+
 		/*
 			if($(this).val().trim()=="physics"){
 				// chap_kardena = `<option value="phychap">phychap</option>`;
@@ -47,6 +54,29 @@ $(document).ready(function(){
 
 			$('.new_game select.chap_select').html(select_chap_original_html + chap_kardena);
 		*/
+
+
+
+
+		$.ajax({
+			url:'inclusives/ajax_howManyQs.php',
+	    	type:'post',
+	    	data:{
+	    		// 'this_chapCode': 'keph203&4&5',
+	    		'chaps_arr': JSON.stringify(chaps_of_dis_subj),
+	        },
+	        success:function(d){
+	       	  // console.log(JSON.parse(d));
+
+	       	  totalNumOfQ_ofChaps = JSON.parse(d);
+
+	       	  $('.new_game select.chap_select').removeAttr('disabled');
+	        }
+		});
+
+
+
+
 	});
 
 
@@ -57,14 +87,24 @@ $(document).ready(function(){
 			$('.new_game input[name="numOfQ"]').attr('disabled','');
 		}
 
+		/*
 		if($(this).val() in allsubj_qbank){
 			if( allsubj_qbank[$(this).val()].length >0 ){
 				$('.new_game input[name="numOfQ"]').attr('max', allsubj_qbank[$(this).val()].length);
 				$('.new_game input[name="numOfQ"]').removeAttr('disabled');
 			}else chap_has_noQ();
 		}else chap_has_noQ();
+		*/
+
+		// console.log(totalNumOfQ_ofChaps[$('.new_game select.chap_select').val()]);
+
+		if( totalNumOfQ_ofChaps[$(this).val()] >0 ){
+			$('.new_game input[name="numOfQ"]').attr('max', totalNumOfQ_ofChaps[$(this).val()]);
+			$('.new_game input[name="numOfQ"]').removeAttr('disabled');
+		}else chap_has_noQ();
 
 	});
+
 
 
 
@@ -76,7 +116,7 @@ $(document).ready(function(){
 		// console.log('returned is: '+randomExclude(200000, 200004, 1));
 
 		// let randQidArr = randomExclude(151, 154, 4);
-		let randQidArr = randomExclude(0, allsubj_qbank[$('.new_game select.chap_select').val()].length-1, parseInt($('.new_game input[name="numOfQ"]').val(), 10));
+		let randQidArr = randomExclude(0, totalNumOfQ_ofChaps[$('.new_game select.chap_select').val()]-1, parseInt($('.new_game input[name="numOfQ"]').val(), 10));
 		console.log(randQidArr);
 
 		const urlParams = new URLSearchParams(window.location.search);
@@ -108,5 +148,24 @@ $(document).ready(function(){
 
 	});
 
+
+
+	let prevG_tbody_trs = $('.joinedGcontainer table tbody tr');
+	let yrsp = $('.joinedGcontainer table thead tr th');
+	let dsjj;
+
+	for(let i=0; i<yrsp.length; i++){
+		if($(yrsp[i]).text().trim().toLowerCase() == "chapter" ){
+			dsjj=i;
+		}
+	}
+
+	for(let i=0; i<prevG_tbody_trs.length; i++){
+
+		let pqkk = $(prevG_tbody_trs[i]).children('td')[dsjj];
+
+		$(pqkk).text(chap_codes[$(pqkk).text().trim()]);
+
+	}
 
 });

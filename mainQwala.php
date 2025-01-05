@@ -314,7 +314,15 @@ if(isset($_POST['endGbtn'])){
 
 </head>
 <body>
-    
+    <!-- 
+    <div class="preloader_outer">
+        <img src="inclusives/load-35_256.gif" alt="preloader gif" class="preloader_gif">
+        <div class="preloader">
+            LiveQ
+        </div>
+    </div> -->
+
+
     <div class="main max_width_fixed_forLargeScreen">
 
         <div class="game_info pt-1">
@@ -346,7 +354,7 @@ if(isset($_POST['endGbtn'])){
             <div class="chap d-inline-block me-2">Chapter: <span><?php echo $game_details['chapter']; ?></span>; </div>
             <div class="ques_ids d-none me-2"><?php echo $game_details['ques_ids']; ?></div>
             <div class="players">
-                Players :-
+                Players :- <img src="inclusives/grey-9026_256.gif" alt="loading players animation" class="d-inline-block loading_players_anim" style="width:2rem;">
                 <br>
                 <ul class="list-group">
 
@@ -563,7 +571,7 @@ if(isset($_POST['endGbtn'])){
                     // print_r($users_qtimings_arr);
                     if(count($users_qtimings_arr)>0){
                         foreach ($users_qtimings_arr as $x) {
-                            echo "<div class=\"playerTime\">{$x[0]}: <b>{$x[1]}</b></div>";
+                            echo "<div class=\"playerTime\"><span>{$x[0]}</span>: <b>{$x[1]}</b></div>";
                         }
                     }
                 }
@@ -597,12 +605,39 @@ if(isset($_POST['endGbtn'])){
 
 
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script src="inclusives/qbank.js"></script>
     <script src="forall.js"></script>
+
+    <script>
+
+
+        let ypwb = '<?php echo $game_details['ques_ids']; ?>';
+
+        let allsubj_qbank = {};
+        allsubj_qbank['<?php echo $game_details['chapter']; ?>'] = [];
+
+        <?php
+
+            // $ids_73yk3 = explode(",", $game_details['ques_ids']);
+
+            // foreach ($ids_73yk3 as $id_y2p) {
+
+            //     $q71 = mysqli_query($conn, "SELECT * FROM allsubj_qbank WHERE chap='{$game_details['chapter']}' AND qid={$id_y2p} ");
+            //     $q72 = print_r(mysqli_fetch_array($q71));
+            //     echo "console.log('{$q72}')";
+            //     // echo "allsubj_qbank['{$game_details['chapter']}'].push({})";
+
+            // }
+
+
+        ?>
+
+
+    </script>
+
     <script src="mainQwala.js"></script>
     
 </body>
