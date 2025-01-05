@@ -22,3 +22,16 @@ function randomExclude(min, max, howManyRandNums, exclude = []) {
 	return numArr; // this array contains inclusive of min & max
 }
 
+
+
+$(document).ready(function(){
+
+
+	setTimeout(function(){
+		$('.preloader_outer').fadeOut();
+	},800);
+
+
+
+});
+

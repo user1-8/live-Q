@@ -109,4 +109,23 @@ $(document).ready(function(){
 	});
 
 
+
+	let prevG_tbody_trs = $('.joinedGcontainer table tbody tr');
+	let yrsp = $('.joinedGcontainer table thead tr th');
+	let dsjj;
+
+	for(let i=0; i<yrsp.length; i++){
+		if($(yrsp[i]).text().trim().toLowerCase() == "chapter" ){
+			dsjj=i;
+		}
+	}
+
+	for(let i=0; i<prevG_tbody_trs.length; i++){
+
+		let pqkk = $(prevG_tbody_trs[i]).children('td')[dsjj];
+
+		$(pqkk).text(chap_codes[$(pqkk).text().trim()]);
+
+	}
+
 });

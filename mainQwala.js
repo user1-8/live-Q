@@ -71,7 +71,7 @@ $(document).ready(function(){
 
 	let original_chapCode = $('.game_info .chap span').text().trim();
 
-	$('.game_info .chap span').text(chap_codes[$('.game_info .chap span').text().trim()]);
+	$('.game_info .chap span').text(chap_codes[original_chapCode]);
 
 	let thisGid = $('.game_info .gid span').text().trim();
 
@@ -287,14 +287,23 @@ $(document).ready(function(){
 						let jgk = playersChosenOptn_arr[i][1][allQcompo.length - 1];
 						console.log('jgk: '+jgk);
 
+						let mwhbtp = 'unattempted';
+
 						if(jgk.trim()!=""){
 
 							let tlev = $($(lastWalaQcompo).children('.options').children('div[role="button"]')[parseInt(jgk.trim(), 10)]);
 
-							let top_fjsd = (tlev.children('.myclass_ewcoj').length)*25 + 5;
+							if($(tlev).hasClass('willbecorrect')){
+								mwhbtp = 'correct';
+							}else{
+								mwhbtp = 'wrong';
+							}
+
+							let top_fjsd = ((tlev.children('.myclass_ewcoj').length)*22 + 2.2)/16;
 							tlev.append(
-								`<span class="position-absolute myclass_ewcoj badge bg-dark ms-2" style="top:${top_fjsd}px; right:7px; transform:scale(0.94); opacity:.8;">${playersChosenOptn_arr[i][0]}</span>` );
+								`<span class="position-absolute myclass_ewcoj badge bg-dark ms-2" style="top:${top_fjsd}rem; right:7px; transform:scale(0.94); opacity:.8;">${playersChosenOptn_arr[i][0]}</span>` );
 						}
+						$(lastWalaQcompo).addClass(`mX2C36n7_${playersChosenOptn_arr[i][0]}_${mwhbtp}H_tqBQ0KPE`);
 					}
 				}
 
@@ -324,6 +333,52 @@ $(document).ready(function(){
 		}
 
 	}
+
+
+	if($('.result_overview').length>0){
+		let nctk = [];
+		let ysert = $('.result_overview table thead tr th');
+		let ntwp_tbody_tr = $('.result_overview table tbody tr');
+
+		for(let i=0; i<ysert.length; i++){
+			let ftfrp = $(ysert[i]).text().trim().toLowerCase();
+
+			if(ftfrp=="c"){
+				nctk[0] = i;
+			}else if(ftfrp=="w"){
+				nctk[1] = i;
+			}else if (ftfrp=="u"){
+				nctk[2] = i;
+			}
+		}
+
+		for(let i=0; i<ntwp_tbody_tr.length; i++){
+			for(let j=0; j<nctk.length; j++){
+
+				let kprk = $(ntwp_tbody_tr[i]).children('td')[nctk[j]];
+				let fnep_pInt = parseInt($(kprk).text().trim(), 10);
+				let plyrname_cntpw = $($(ntwp_tbody_tr[i]).children('td')[0]).text().trim();
+
+				if( fnep_pInt!=0 && !isNaN(fnep_pInt) ){
+					$(kprk).addClass('clickable');
+
+					let cwu;
+
+					if(j==0) cwu = 'correct';
+					if(j==1) cwu = 'wrong';
+					if(j==2) cwu = 'unattempted';
+
+					$(kprk).attr('data-plyr_cwu', `mX2C36n7_${plyrname_cntpw}_${cwu}H_tqBQ0KPE_showbtn`);
+				}
+
+			}
+		}
+
+	}
+
+
+	
+
 
 
 
@@ -417,7 +472,7 @@ $(document).ready(function(){
 
 
 
-	setInterval(function(){
+	let intrvl_34jh2 = setInterval(function(){
 
 		if( $('.wait_GnotStarted').length>0 || $('.gameStartKarein').length>0 ){
 
@@ -428,9 +483,17 @@ $(document).ready(function(){
 				console.log('loaded');
 			});
 
+		}else{
+			clearInterval(intrvl_34jh2);
 		}
 
 	},5000);
+
+
+	if( $('.game_info .gStatus span').text().trim().toLowerCase() != 'not started' ){
+		$('.game_info .players .loading_players_anim').addClass('d-none');
+	}
+
 
 
 
@@ -555,7 +618,8 @@ console.log(curr_showedQ);
 
 			if(n==1){
 				$('.qSection .navigateQ .prev').attr('disabled', '');
-			}else if(n==allQcompo.length){
+			}
+			if(n==(allQcompo.length)){
 				if($('.result_overview').length <1){
 					$('.qSection .navigateQ .next').text('Submit');
 				}else{
@@ -795,6 +859,48 @@ console.log(curr_showedQ);
 			e.preventDefault();
 		}
 	});
+
+
+
+
+
+	let initial_qcompContainer_html = $('.qSection .qcompContainer').html();
+	let initial_playersTime_arrStr = JSON.stringify(playersTime_arr);
+
+	$('.result_overview table td.clickable').on('click', function(){
+		let yoshp = $(this).hasClass('bg-primary text-light');
+
+		$('.result_overview table td.clickable').removeClass('bg-primary text-light');
+		$('.qSection .qcompContainer').html(initial_qcompContainer_html);
+		playersTime_arr = JSON.parse(initial_playersTime_arrStr);
+
+		if( !(yoshp) ){ //not shuru se has class bg-prim
+			$(this).addClass('bg-primary text-light');
+			let ebz = $(this).attr('data-plyr_cwu').trim().replace(new RegExp('_showbtn' + '$'), '');
+			let q_comps_xjpz = $('.qSection .qcompContainer .question-component');
+
+			// let indexes_toRemove = [];
+			let cbrw = 0;
+			for(let i=0; i<q_comps_xjpz.length; i++){
+				if( !( $(q_comps_xjpz[i]).hasClass(ebz) ) ){
+					$(q_comps_xjpz[i]).prop('outerHTML', '');
+
+
+					for(let j=0; j<playersTime_arr.length; j++){
+						playersTime_arr[j].splice(i-cbrw, 1);
+					}
+
+					cbrw++;
+
+				}
+			}
+		}
+		console.log(playersTime_arr);
+
+		show_nth_q(1);
+
+	});
+
 
 
 });
