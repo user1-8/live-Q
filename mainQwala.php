@@ -305,8 +305,6 @@ if(isset($_POST['endGbtn'])){
     
 
     <?php include 'inclusives/inside_head.html';?>
-
-    <title>Live-Q</title>
     
     <link rel="stylesheet" href="mainQwala.css">
 

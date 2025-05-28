@@ -128,7 +128,6 @@ if(isset($_POST['openPrevG'])){
 
     <?php include 'inclusives/inside_head.html';?>
 
-    <title>Live-Q</title>
     <link rel="stylesheet" href="style.css">
 
 </head>

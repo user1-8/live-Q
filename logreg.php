@@ -47,7 +47,7 @@ if(isset($_POST['loginbtn'])){
     }
   }else{
     echo '<script>
-    alert("not happen");
+    alert("INTERNAL ERROR");
     </script>';
   }
 }
@@ -62,18 +62,22 @@ if(isset($_POST['signupbtn'])){
 
 
 
-  function my_mysqliShowingQuery($connection, $query, $whichRowWanted){
+  function my_mysqliShowingQuery($connection, $query, $whichColWanted){
     $tobereturnedarr = array();
     $q32 = mysqli_query($connection, $query);
 
     while($myarr = mysqli_fetch_array($q32)){
-      array_push($tobereturnedarr, $myarr[$whichRowWanted]);
+      array_push($tobereturnedarr, $myarr[$whichColWanted]);
     }
 
     return $tobereturnedarr;
-    echo '<script>
-    alert("'.$regname.':'.$regpass1.':'.$regpass2.'");
-    </script>';
+
+    //----- i think below code = useless
+    // echo '<script>
+    // alert("'.$regname.':'.$regpass1.':'.$regpass2.'");
+    // </script>';
+
+
   }
 
 
@@ -85,7 +89,7 @@ if(isset($_POST['signupbtn'])){
     if($q1){
       echo '<script>
       alert("Account created successfully! You can now login to start using the service.");
-      window.location.href="index.php";
+      window.location.href="logreg.php";
       </script>';
     }else{
         echo '<script>
@@ -131,7 +135,6 @@ if(isset($_POST['signupbtn'])){
 
     <?php include 'inclusives/inside_head.html';?>
 
-    <title>Live-Q</title>
     <link rel="stylesheet" href="logreg.css">
 
 
