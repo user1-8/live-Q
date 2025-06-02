@@ -1,0 +1,47 @@
+for which year and exam:-
+$('.question-component > :first-child > :first-child > :first-child > :nth-child(2) > :first-child')
+
+
+$($('.question-component > :first-child > .question')[0]).find('img').length
+
+
+$($('.question-component > :first-child > .question')[1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+phy = {
+
+   'chap1': [
+
+      {
+         qid: 0,
+         q: 'asdfasdf',
+         external_optns: '',
+         correct: 3,
+         explanation: '',
+         q_of_exam: '',
+      },
+
+
+   ]
+
+}
+
+
+
+
+
+
+
+

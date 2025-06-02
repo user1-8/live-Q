@@ -1,0 +1,212 @@
+
+
+
+
+
+
+var chap_list = {
+
+	'physics': [
+		// class 11
+		'keph101', 'keph_extra1', 'keph102', 'keph103', 'keph104', 'keph105', 'keph106', 'keph107', 'keph201&2', 'keph203&4&5', 'keph206', 'keph207', 'keph_extra2', 'keph_extra3',
+		// class 12
+		'leph101', 'leph102', 'leph103', 'leph104', 'leph105', 'leph106', 'leph107', 'leph108', 'leph201', 'leph202', 'leph203', 'leph204&5', 'leph206', 'leph_extra1',
+	],
+
+	'chemistry': [
+		// inorganic chem
+		'kech103', 'kech104', 'kech_extra1', 'kech_extra2', 'kech_extra3', 'lech104', 'lech105', 'lelm107', 'lech_extra2', 
+		// organic chem
+		'kech202', 'kech203', 'lech201', 'lech202', 'lech203', 'lech204', 'lech205', 'lech_extra1',
+	],
+
+	'biology': [
+		// class 11
+		"kebo101", "kebo102", "kebo103", "kebo104", "kebo105", "kebo106", "kebo107", "kebo108", "kebo109", "kebo110", "kebo111", "kebo112", "kebo113", "kebo114", "kebo115", "kebo116", "kebo117", "kebo118", "kebo119", "kebo120", "kebo121", "kebo122",
+		// class 12
+		'lebo101', 'lebo102', 'lebo103', 'lebo104', 'lebo105', 'lebo106', 'lebo107', 'lebo108', 'lebo109', 'lebo110', 'lebo111', 'lebo112', 'lebo113', 'lebo_extra1', 'lebo_extra2', 'lebo_extra3', 
+	],
+
+	'math': [],
+
+};
+
+
+var chap_codes = {
+
+
+	// class 11 phy - start
+	'keph101': 'Units & Measurements',
+	'keph_extra1': 'Vector Algebra',
+
+	'keph102': 'Motion in a Straight Line',
+	'keph103': 'Motion in a Plane',
+	'keph104': 'Laws of Motion',
+	'keph105': 'Work Power & Energy',
+	'keph106': 'Rotational Motion',
+	'keph107': 'Gravitation',
+	'keph201&2': 'Properties of Matter',
+	'keph203&4&5': 'Heat & Thermodynamics',
+	'keph206': 'Oscillations (SHM)',
+	'keph207': 'Waves',
+
+	'keph_extra2': 'Circular Motion',
+	'keph_extra3': 'Center of Mass & Collision',
+	// class 11 phy - end
+
+
+
+	// class 12 phy - start
+	'leph101': 'Electrostatics',
+	'leph102': 'Capacitor',
+	'leph103': 'Current Electricity',
+	'leph104': 'Magnetic Effect of Current',
+	'leph105': 'Magnetism & Matter',
+	'leph106': 'Electromagnetic Induction',
+	'leph107': 'Alternating Current',
+	'leph108': 'Electromagnetic Waves',
+	'leph201': 'Ray Optics & Optical Instruments',
+	'leph202': 'Wave Optics',
+	'leph203': 'Dual Nature of Radiation & Matter',
+	'leph204&5': 'Atoms & Nuclei',
+	'leph206': 'Semiconductors',
+	'leph_extra1': 'Communication Systems',
+	// class 12 phy - end
+
+
+
+
+
+
+	// Inorganic chem - start
+	'kech103': 'Periodic Table & Periodicity',
+	'kech104': 'Chemical Bonding & Molecular Structure',
+	'kech_extra1': 'Hydrogen',
+	'kech_extra2': 's-Block Elements',
+	'kech_extra3': 'p-Block Elements',
+	'lech104': 'd & f Block Elements',
+	'lech105': 'Coordination Compounds',
+	'lelm107': 'Salt Analysis',
+	'lech_extra2': 'Environmental Chemistry',
+	// Inorganic chem - end
+
+
+	// Organic chem - start
+	'kech202': 'Basics of Organic Chemistry',
+	'kech203': 'Hydrocarbons',
+
+	'lech201': 'Haloalkanes & Haloarenes',
+	'lech202': 'Alcohols, Phenols & Ethers',
+	'lech203': 'Aldehydes, Ketones & Carboxylic Acids',
+	'lech204': 'Amines',
+	'lech205': 'Biomolecules',
+	'lech206': 'Polymers',
+	'lech207': 'Chemistry in Everyday Life',
+	'lech_extra1': 'Practical Organic Chemistry',
+	// Organic chem - end
+
+
+
+	// class 11 bio - start
+	'kebo101': 'The Living World',
+	'kebo102': 'Biological Classification',
+	'kebo103': 'Plant Kingdom',
+	'kebo104': 'Animal Kingdom',
+	'kebo105': 'Morphology of Flowering Plants',
+	'kebo106': 'Anatomy of Flowering Plants',
+	'kebo107': 'Structural Organisation in Animals',
+	'kebo108': 'Cell : The Unit of Life',
+	'kebo109': 'Biomolecules',
+	'kebo110': 'Cell Cycle & Cell Division',
+	'kebo111': 'Transport in Plants',
+	'kebo112': 'Mineral Nutrition',
+	'kebo113': 'Photosynthesis in Higher Plants',
+	'kebo114': 'Respiration in Plants',
+	'kebo115': 'Plant Growth & Development',
+	'kebo116': 'Digestion & Absorption',
+	'kebo117': 'Breathing & Exchange of Gases',
+	'kebo118': 'Body Fluids & Circulation',
+	'kebo119': 'Excretory Products & their Elimination',
+	'kebo120': 'Locomotion & Movement',
+	'kebo121': 'Neural Control & Coordination',
+	'kebo122': 'Chemical Coordination & Integration',
+	// class 11 bio - end
+
+
+	// class 12 bio - start
+	'lebo101': 'Sexual Reproduction in Flowering Plants',
+	'lebo102': 'Human Reproduction',
+	'lebo103': 'Reproductive Health',
+	'lebo104': 'Principles of Inheritance & Variation',
+	'lebo105': 'Molecular Basis of Inheritance',
+	'lebo106': 'Evolution',
+	'lebo107': 'Human Health & Disease',
+	'lebo108': 'Microbes in Human Welfare',
+	'lebo109': 'Biotechnology : Principles & Processes',
+	'lebo110': 'Biotechnology & its Applications',
+	'lebo111': 'Organisms & Populations',
+	'lebo112': 'Ecosystem',
+	'lebo113': 'Biodiversity & Conservation',
+	'lebo_extra1': 'Reproduction in Organisms',
+	'lebo_extra2': 'Strategies for Enhancement in Food Production',
+	'lebo_extra3': 'Environmental Issues',
+	// class 12 bio - end
+
+};
+
+
+
+
+setTimeout(function(){
+
+
+    // Check Answer button selector
+    let checkAns_btnSlctr = 'button[aria-label="Check Answer Button"]';
+
+    let quesArr = [];
+
+    for (let i=0; i<$('.question-component').length; i++){
+        let obj_topush = {};
+        let this_qCompnt = $('.question-component')[i];
+        obj_topush['q'] = this_qCompnt.outerHTML;
+
+
+        $(this_qCompnt).find(checkAns_btnSlctr).click();
+
+
+        setTimeout(function(){
+            let this_optns = $($('.question-component')[i]).children('.options').children();
+        
+
+            for(let j=0; j<this_optns.length; j++){
+                console.log(this_optns[j].innerText); 
+                if(this_optns[j].innerText.search(/correct answer/i) > -1 && this_optns[j].getAttribute('class').search(/green/i) > -1){
+                    obj_topush['correct'] = j;
+                }
+            }
+            obj_topush['explanation'] = ($($('.question-component')[i]).children())[2].outerHTML;
+            
+            quesArr.push(obj_topush);
+        },1500);
+    }
+
+    setTimeout(function(){
+        let xyzw = quesArr;
+        if(localStorage.getItem('quesArr') != null){
+            xyzw = JSON.parse(localStorage.getItem('quesArr'));
+            for(let k=0; k<quesArr.length; k++){
+                xyzw.push(quesArr[k]);
+            }
+        }
+        localStorage.setItem('quesArr',JSON.stringify(xyzw));
+
+        // console.log(quesArr);
+        console.log(xyzw);
+        document.querySelector("body > div:nth-child(1) > div.app > main > div > div > div.main-container.flex.flex-wrap.gap-2.lg\\:gap-4 > div.flex-grow.flex.flex-col.gap-2.lg\\:gap-4 > div:nth-child(2) > a:nth-child(2)").click();
+    },2000);
+},500);
+
+
+
+
+
